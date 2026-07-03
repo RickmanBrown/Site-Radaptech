@@ -1,8 +1,16 @@
+import { motion } from 'framer-motion';
+
 function About() {
   return (
     <section id="sobre" className="relative px-5 py-24 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+        >
           <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-cyan-400/10 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-blue-500/10 blur-3xl" />
 
@@ -31,10 +39,15 @@ function About() {
               e modernizar seus processos.
             </p>
           </div>
-        </div>
-
+        </motion.div>
         <div>
-          <p className="text-lg leading-9 text-slate-300">
+          <motion.p 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="text-lg leading-9 text-slate-300"
+          >
             Nosso foco é criar{' '}
             <span className="font-semibold text-cyan-300">
               soluções digitais sob medida
@@ -45,10 +58,17 @@ function About() {
             <span className="font-semibold text-blue-300">clara</span>,{' '}
             <span className="font-semibold text-cyan-300">bonita</span> e{' '}
             <span className="font-semibold text-blue-300">eficiente</span>.
-          </p>
+          </motion.p>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5">
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
+            >
               <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-cyan-400/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
 
               <div className="relative">
@@ -68,9 +88,14 @@ function About() {
                   .
                 </p>
               </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
+            >
               <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
 
               <div className="relative">
@@ -90,9 +115,14 @@ function About() {
                   .
                 </p>
               </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5 sm:col-span-2">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5 sm:col-span-2"
+            >
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
               <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
 
@@ -113,12 +143,13 @@ function About() {
                   .
                 </p>
               </div>
-            </div>
+            </motion.div>
+
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

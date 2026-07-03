@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const services = [
   {
     title: 'Sistemas web',
@@ -29,13 +31,20 @@ const services = [
     description:
       'Transformação de tarefas manuais em fluxos digitais mais rápidos, organizados e eficientes.',
   },
-]
+];
 
 function Services() {
   return (
     <section id="servicos" className="relative px-5 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-3xl"
+        >
           <span className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
             Serviços
           </span>
@@ -62,12 +71,15 @@ function Services() {
             </span>
             .
           </p>
-        </div>
-
+        </motion.div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <article
+            <motion.article
               key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-cyan-400/50 hover:bg-cyan-400/5"
             >
               <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
@@ -88,12 +100,12 @@ function Services() {
                   {service.description}
                 </p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Services
+export default Services;

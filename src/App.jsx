@@ -1,30 +1,50 @@
-import BackgroundFX from './components/BackgroundFX'
-import Header from './components/Header'
-import Hero from './pages/home/Hero'
-import About from './pages/home/About'
-import Services from './pages/home/Services'
-import EpiSystem from './components/EpiSystem'
-import Process from './pages/home/Process'
-import Contact from './pages/home/Contact'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import BackgroundFX from './components/BackgroundFX';
+import Header from './components/Header';
+import Hero from './pages/home/Hero';
+import About from './pages/home/About';
+import Services from './pages/home/Services';
+import EpiSystem from './components/EpiSystem';
+import Process from './pages/home/Process';
+import Contact from './pages/home/Contact';
+import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
+import SystemPage from './pages/sistema-epi/SystemPage';
 
 function App() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-transparent text-white">
-      <BackgroundFX />
+    <BrowserRouter>
+      <main className="relative min-h-screen overflow-x-hidden bg-transparent text-white">
+        <BackgroundFX />
 
-      <div className="relative z-10">
-        <Header />
-        <Hero />
-        <About />
-        <Services />
-        <EpiSystem />
-        <Process />
-        <Contact />
-        <Footer />
-      </div>
-    </main>
-  )
+        <div className="relative z-10">
+          <Header />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <About />
+                  <Services />
+                  <EpiSystem />
+                  <Process />
+                  <Contact />
+                </>
+              }
+            />
+
+            <Route path="/sistema-epi" element={<SystemPage />} />
+          </Routes>
+
+          <Footer />
+          <BackToTop />
+        </div>
+      </main>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
