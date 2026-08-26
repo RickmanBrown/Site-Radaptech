@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const steps = [
   {
     title: 'Entendimento',
@@ -23,58 +25,60 @@ const steps = [
 
 function Process() {
   return (
-    <section id="processo" className="relative px-5 py-24 lg:px-8">
+    <section id="processo" className="relative bg-neutral-950 px-6 py-28 font-sans lg:px-12">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             Como trabalhamos
           </span>
 
-          <h2 className="mt-4 text-3xl font-black text-white sm:text-5xl">
-            Do{' '}
-            <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-200 bg-clip-text text-transparent">
-              problema
-            </span>{' '}
-            à solução digital.
+          <h2 className="mt-6 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl">
+            Do <span className="font-normal text-white">problema</span> à solução digital.
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            Nosso processo é pensado para transformar uma{' '}
-            <span className="font-semibold text-cyan-300">
-              necessidade real
-            </span>{' '}
-            em um sistema{' '}
-            <span className="font-semibold text-blue-300">funcional</span>,{' '}
-            <span className="font-semibold text-cyan-300">objetivo</span> e
-            fácil de usar.
+          <p className="mt-6 text-base font-light leading-relaxed text-neutral-400 sm:text-lg">
+            Nosso processo é pensado para transformar uma{" "}
+            <span className="text-blue-500 font-normal">necessidade real</span>{" "}
+            em um sistema{" "}
+            <span className="text-blue-500 font-normal">funcional</span>,{" "}
+            <span className="text-blue-500 font-normal">objetivo</span> e fácil de usar.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           {steps.map((step, index) => (
-            <article
+            <motion.article
               key={step.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              className="group relative border-t border-neutral-800 pt-8 transition-colors hover:border-neutral-600"
             >
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-              <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-
               <div className="relative">
-                <span className="text-5xl font-black text-cyan-400/20 transition group-hover:text-cyan-400/35">
-                  {index + 1}
+                <span className="block text-4xl font-light text-neutral-800 transition-colors group-hover:text-neutral-400">
+                  0{index + 1}
                 </span>
 
-                <h3 className="mt-5 text-xl font-bold text-white transition group-hover:text-cyan-200">
+                <h3 className="mt-6 text-xl font-normal text-white">
                   {step.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-slate-400">
+                <p className="mt-4 text-sm font-light leading-relaxed text-neutral-400">
                   {step.description}
                 </p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
+        
       </div>
     </section>
   )
