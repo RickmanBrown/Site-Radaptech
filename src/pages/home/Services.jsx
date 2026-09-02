@@ -35,7 +35,7 @@ const services = [
 
 function Services() {
   return (
-    <section id="servicos" className="relative px-5 py-24 lg:px-8">
+    <section id="servicos" className="relative bg-neutral-950 px-6 py-28 font-sans lg:px-12">
       <div className="mx-auto max-w-7xl">
         
         <motion.div 
@@ -45,64 +45,53 @@ function Services() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <span className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             Serviços
           </span>
 
-          <h2 className="mt-4 text-3xl font-black text-white sm:text-5xl">
-            <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-200 bg-clip-text text-transparent">
-              Soluções digitais
-            </span>{' '}
-            para diferentes necessidades.
+          <h2 className="mt-6 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl">
+            Soluções digitais{" "}
+            <span className="text-blue-500 font-normal">
+              para diferentes necessidades.
+            </span>
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-300">
-            Criamos ferramentas que ajudam empresas e microempreendedores a{' '}
-            <span className="font-semibold text-cyan-300">
-              controlar informações
-            </span>
-            ,{' '}
-            <span className="font-semibold text-blue-300">
-              melhorar processos
-            </span>{' '}
-            e substituir métodos manuais por{' '}
-            <span className="font-semibold text-cyan-300">
-              sistemas mais práticos
-            </span>
-            .
+          <p className="mt-6 text-base font-light leading-relaxed text-neutral-400 sm:text-lg">
+            Criamos ferramentas que ajudam empresas e microempreendedores a{" "}
+            <span className="text-blue-500 font-normal">controlar informações</span>,{" "}
+            <span className="text-blue-500 font-normal">melhorar processos</span>{" "}
+            e substituir métodos manuais por{" "}
+            <span className="text-blue-500 font-normal">sistemas mais práticos</span>.
           </p>
         </motion.div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="mt-20 grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.article
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition hover:-translate-y-1 hover:border-cyan-400/50 hover:bg-cyan-400/5"
+              className="group relative border-t border-neutral-900 pt-8 transition-colors hover:border-neutral-600"
             >
-              <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
-                <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+              
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-800 text-xs font-light text-neutral-500 transition-colors group-hover:border-neutral-400 group-hover:text-white">
+                {String(index + 1).padStart(2, '0')}
               </div>
 
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-lg font-black text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.12)]">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
+              <h3 className="mt-6 text-xl font-normal text-white">
+                {service.title}
+              </h3>
 
-                <h3 className="mt-6 text-xl font-bold text-white transition group-hover:text-cyan-200">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-slate-400">
-                  {service.description}
-                </p>
-              </div>
+              <p className="mt-3 text-sm font-light leading-relaxed text-neutral-400">
+                {service.description}
+              </p>
+              
             </motion.article>
           ))}
         </div>
+
       </div>
     </section>
   );

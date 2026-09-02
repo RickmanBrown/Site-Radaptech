@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import BackgroundFX from './components/BackgroundFX';
 import Header from './components/Header';
 import Hero from './pages/home/Hero';
 import About from './pages/home/About';
@@ -16,7 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <main className="relative min-h-screen overflow-x-hidden bg-transparent text-white">
-        <BackgroundFX />
 
         <div className="relative z-10">
           <Header />

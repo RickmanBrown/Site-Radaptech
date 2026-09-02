@@ -1,36 +1,38 @@
 import { motion } from 'framer-motion';
-import { Calendar} from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 const CTA = () => {
     return (
-        <section className="py-24 bg-[#01010c]">
-            <div className="container mx-auto px-6">
-                <div className="relative overflow-hidden bg-gradient-to-br from-[#00a3ff] to-[#0057ff] rounded-[3rem] p-12 md:p-20 text-center">
-                    <div className="absolute top-0 left-0 w-64 h-64 border-[40px] border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <section className="relative bg-neutral-950 px-6 py-28 font-sans lg:px-12">
+            <div className="mx-auto max-w-4xl text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+                        Próximo Passo
+                    </span>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="relative z-10"
-                    >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                            Transforme a segurança da sua empresa hoje.
-                        </h2>
-                        <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-                            Pronto para migrar para o digital? Nossa equipe está pronta para te mostrar como o Sistema de Gestão de EPI vai economizar seu tempo e garantir sua tranquilidade.
-                        </p>
+                    <h2 className="mt-6 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl">
+                        Transforme a segurança da sua <span className="font-normal text-blue-500">empresa hoje.</span>
+                    </h2>
+                    
+                    <p className="mt-6 text-base font-light leading-relaxed text-neutral-400 sm:text-lg">
+                        Pronto para migrar para o digital? Nossa equipe está pronta para te mostrar como o Sistema de Gestão de EPI vai economizar seu tempo e garantir sua tranquilidade.
+                    </p>
 
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <a 
-                                href="mailto:radaptech@gmail.com?subject=Solicitação de Demonstração - Sistema EPI"
-                                className="cursor-pointer px-10 py-5 bg-white text-[#00a3ff] rounded-2xl font-bold text-lg hover:scale-105 transition-all flex items-center gap-3 shadow-xl"
-                            >
-                                <Calendar size={22} /> Solicitar demonstração
-                            </a>
-                        </div>
-                    </motion.div>
-                </div>
+                    <div className="mt-12 flex justify-center">
+                        <a 
+                            href="mailto:radaptech@gmail.com?subject=Solicitação de Demonstração - Sistema EPI"
+                            className="group flex items-center gap-3 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black transition-transform hover:scale-105"
+                        >
+                            <Calendar size={18} strokeWidth={2} className="transition-transform group-hover:-rotate-12" />
+                            Solicitar demonstração
+                        </a>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

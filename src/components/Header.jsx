@@ -1,6 +1,21 @@
 import { useState } from 'react'
-import { useLocation, Link } from 'react-router-dom' 
+import { useLocation, Link } from 'react-router-dom'
 import Logo from './Logo'
+
+const MenuIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="4" y1="12" x2="20" y2="12"></line>
+    <line x1="4" y1="6" x2="20" y2="6"></line>
+    <line x1="4" y1="18" x2="20" y2="18"></line>
+  </svg>
+)
+
+const CloseIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+)
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,26 +37,26 @@ function Header() {
   }
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
-
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        {isHomePage ? (
-          <Logo />
-        ) : (
-          <Link to="/">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/5 bg-neutral-950/80 backdrop-blur-md transition-all font-sans">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-12">
+        <div className="flex items-center">
+          {isHomePage ? (
             <Logo />
-          </Link>
-        )}
+          ) : (
+            <Link to="/" className="transition-opacity hover:opacity-80">
+              <Logo />
+            </Link>
+          )}
+        </div>
 
         {isHomePage && (
           <>
-            <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 lg:flex">
+            <nav className="hidden items-center gap-10 lg:flex">
               {links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="relative transition hover:text-cyan-300 after:absolute after:-bottom-2 after:left-0 after:h-px after:w-0 after:bg-cyan-300 after:transition-all hover:after:w-full"
+                  className="text-sm font-light tracking-wide text-neutral-400 transition-colors hover:text-blue-600"
                 >
                   {link.label}
                 </a>
@@ -50,17 +65,17 @@ function Header() {
 
             <a
               href="mailto:radaptech@gmail.com"
-              className="hidden rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-2.5 text-sm font-bold text-slate-950 shadow-[0_0_22px_rgba(34,211,238,0.18)] transition hover:scale-[1.02] hover:from-cyan-300 hover:to-blue-400 lg:inline-flex"
+              className="hidden rounded-full bg-blue-600 px-6 py-2 text-sm font-medium text-white transition-transform hover:scale-105 lg:inline-flex"
             >
               Fale conosco
             </a>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white shadow-[0_0_18px_rgba(34,211,238,0.08)] transition hover:border-cyan-400/40 hover:text-cyan-300 lg:hidden"
-              aria-label="Abrir menu"
+              className="p-2 text-neutral-400 transition-colors hover:text-white lg:hidden"
+              aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
             >
-              <span className="text-2xl">{isOpen ? '×' : '☰'}</span>
+              {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </>
         )}
@@ -68,23 +83,22 @@ function Header() {
         {!isHomePage && (
           <a
             href="mailto:radaptech@gmail.com"
-            className="hidden rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-2.5 text-sm font-bold text-slate-950 shadow-[0_0_22px_rgba(34,211,238,0.18)] transition hover:scale-[1.02] hover:from-cyan-300 hover:to-blue-400 lg:inline-flex"
+            className="hidden rounded-full bg-white px-6 py-2 text-sm font-medium text-black transition-transform hover:scale-105 lg:inline-flex"
           >
             Fale com a equipe
           </a>
         )}
-
       </div>
 
       {isHomePage && isOpen && (
-        <div className="border-t border-white/10 bg-slate-950/95 px-5 py-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:hidden">
-          <nav className="flex flex-col gap-4 text-slate-300">
+        <div className="absolute left-0 top-full w-full border-b border-white/5 bg-neutral-950/95 backdrop-blur-xl lg:hidden">
+          <nav className="flex flex-col px-6 py-6">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={closeMenu}
-                className="rounded-xl border border-transparent px-4 py-3 transition hover:border-cyan-400/20 hover:bg-cyan-400/5 hover:text-cyan-300"
+                className="border-b border-white/5 py-4 text-sm font-light tracking-wide text-neutral-300 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
@@ -93,7 +107,7 @@ function Header() {
             <a
               href="mailto:radaptech@gmail.com"
               onClick={closeMenu}
-              className="mt-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3 text-center font-bold text-slate-950 shadow-[0_0_22px_rgba(34,211,238,0.18)] transition hover:from-cyan-300 hover:to-blue-400"
+              className="mt-6 inline-flex justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-neutral-200"
             >
               Fale conosco
             </a>

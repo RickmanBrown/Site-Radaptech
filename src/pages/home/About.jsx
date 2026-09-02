@@ -2,151 +2,107 @@ import { motion } from 'framer-motion';
 
 function About() {
   return (
-    <section id="sobre" className="relative px-5 py-24 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <section id="sobre" className="relative bg-neutral-950 px-6 py-28 font-sans lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative"
         >
-          <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-cyan-400/10 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-blue-500/10 blur-3xl" />
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+            Sobre a RadapTech
+          </span>
 
-          <div className="relative rounded-[1.5rem] border border-cyan-400/10 bg-slate-900/80 p-6 shadow-[0_0_40px_rgba(34,211,238,0.08)] backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-300">
-              Sobre a RadapTech
-            </p>
+          <h2 className="mt-6 text-3xl font-light leading-tight text-white sm:text-4xl lg:text-5xl">
+            Tecnologia simples, funcional e feita para resolver{" "}
+            <span className="font-normal text-white-500 ">problemas reais</span>.
+          </h2>
 
-            <h2 className="mt-5 text-3xl font-black text-white sm:text-5xl">
-              <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-200 bg-clip-text text-transparent">
-                Tecnologia simples
-              </span>
-              , funcional e feita para resolver{' '}
-              <span className="text-cyan-300">problemas reais</span>.
-            </h2>
-
-            <p className="mt-6 leading-8 text-slate-300">
-              A Radaptech nasceu com o objetivo de desenvolver{' '}
-              <span className="font-semibold text-cyan-300">
-                sistemas personalizados
-              </span>{' '}
-              para empresas, microempreendedores e negócios que precisam{' '}
-              <span className="font-semibold text-blue-300">
-                organizar melhor suas informações
-              </span>{' '}
-              e modernizar seus processos.
-            </p>
-          </div>
+          <p className="mt-6 text-base font-light leading-relaxed text-neutral-400 sm:text-lg">
+            A Radaptech nasceu com o objetivo de desenvolver{" "}
+            <span className="text-blue-500 font-normal">sistemas personalizados</span>{" "}
+            para empresas e negócios que precisam{" "}
+            <span className="text-blue-500 font-normal">organizar melhor suas informações</span>{" "}
+            e modernizar seus processos.
+          </p>
         </motion.div>
+
         <div>
           <motion.p 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-lg leading-9 text-slate-300"
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-base font-light leading-relaxed text-neutral-400 sm:text-lg"
           >
-            Nosso foco é criar{' '}
-            <span className="font-semibold text-cyan-300">
-              soluções digitais sob medida
-            </span>
-            , evitando sistemas complicados e cheios de recursos que o cliente
-            não usa. A ideia é entender a necessidade do negócio e transformar
-            essa necessidade em uma ferramenta{' '}
-            <span className="font-semibold text-blue-300">clara</span>,{' '}
-            <span className="font-semibold text-cyan-300">bonita</span> e{' '}
-            <span className="font-semibold text-blue-300">eficiente</span>.
+            Nosso foco é criar{" "}
+            <span className="text-blue-500 font-normal">soluções digitais sob medida</span>,
+            evitando sistemas complicados e cheios de recursos que o cliente não usa. A ideia é entender a necessidade do negócio e transformar essa necessidade em uma ferramenta{" "}
+            <span className="text-blue-500 font-normal">clara</span>,{" "}
+            <span className="text-blue-500 font-normal">elegante</span> e{" "}
+            <span className="text-blue-500 font-normal">eficiente</span>.
           </motion.p>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2">
 
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group border-t border-neutral-900 pt-6 transition-colors hover:border-neutral-600"
+            >
+              <h3 className="text-lg font-normal text-white">
+                Missão
+              </h3>
+              <p className="mt-3 text-sm font-light leading-relaxed text-neutral-400">
+                Ajudar empresas a saírem de{" "}
+                <span className="text-white-500 font-normal">processos manuais</span>{" "}
+                e ganharem mais organização com{" "}
+                <span className="text-blue-500 font-normal">sistemas digitais</span>.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="group border-t border-neutral-900 pt-6 transition-colors hover:border-neutral-600"
+            >
+              <h3 className="text-lg font-normal text-white">
+                Visão
+              </h3>
+              <p className="mt-3 text-sm font-light leading-relaxed text-neutral-400">
+                Ser uma empresa reconhecida por entregar{" "}
+                <span className="text-blue-500 font-normal">soluções simples</span>, úteis e{" "}
+                <span className="text-blue-500 font-normal">bem construídas</span>.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
+              className="group border-t border-neutral-900 pt-6 transition-colors hover:border-neutral-600 sm:col-span-2"
             >
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-cyan-400/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-
-              <div className="relative">
-                <h3 className="text-xl font-bold text-white transition group-hover:text-cyan-200">
-                  Missão
-                </h3>
-
-                <p className="mt-3 leading-7 text-slate-400">
-                  Ajudar empresas a saírem de{' '}
-                  <span className="font-semibold text-cyan-300">
-                    processos manuais
-                  </span>{' '}
-                  e ganharem mais organização com{' '}
-                  <span className="font-semibold text-blue-300">
-                    sistemas digitais
-                  </span>
-                  .
-                </p>
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
-            >
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-
-              <div className="relative">
-                <h3 className="text-xl font-bold text-white transition group-hover:text-cyan-200">
-                  Visão
-                </h3>
-
-                <p className="mt-3 leading-7 text-slate-400">
-                  Ser uma empresa reconhecida por entregar{' '}
-                  <span className="font-semibold text-cyan-300">
-                    soluções simples
-                  </span>
-                  , úteis e{' '}
-                  <span className="font-semibold text-blue-300">
-                    bem construídas
-                  </span>
-                  .
-                </p>
-              </div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5 sm:col-span-2"
-            >
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-              <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition group-hover:opacity-100" />
-
-              <div className="relative">
-                <h3 className="text-xl font-bold text-white transition group-hover:text-cyan-200">
-                  Para quem criamos
-                </h3>
-
-                <p className="mt-3 leading-7 text-slate-400">
-                  Empresas, microempreendedores, equipes pequenas e negócios que
-                  precisam de{' '}
-                  <span className="font-semibold text-cyan-300">controle</span>
-                  ,{' '}
-                  <span className="font-semibold text-blue-300">gestão</span> e{' '}
-                  <span className="font-semibold text-cyan-300">
-                    presença digital
-                  </span>
-                  .
-                </p>
-              </div>
+              <h3 className="text-lg font-normal text-white">
+                Para quem criamos
+              </h3>
+              <p className="mt-3 text-sm font-light leading-relaxed text-neutral-400">
+                Empresas, microempreendedores, equipes pequenas e negócios que precisam de{" "}
+                <span className="text-blue-500 font-normal">controle</span>,{" "}
+                <span className="text-blue-500 font-normal">gestão</span> e{" "}
+                <span className="text-blue-500 font-normal">presença digital</span>.
+              </p>
             </motion.div>
 
           </div>
         </div>
+
       </div>
     </section>
   );
